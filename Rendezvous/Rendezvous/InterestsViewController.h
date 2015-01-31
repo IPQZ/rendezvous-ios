@@ -10,4 +10,7 @@
 
 @interface InterestsViewController : UIViewController
 
+- (void)removefromSelectedWithStr:(NSString *)str;
+- (IBAction)Next:(id)sender;
+
 @end

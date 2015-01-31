@@ -16,6 +16,9 @@
 		BE1587CD1A7CD11500B0D8ED /* AMTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1587CA1A7CD11500B0D8ED /* AMTagListView.m */; };
 		BE1587CE1A7CD11500B0D8ED /* AMTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1587CC1A7CD11500B0D8ED /* AMTagView.m */; };
 		BE1587D51A7CD39A00B0D8ED /* InterestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1587D41A7CD39A00B0D8ED /* InterestsViewController.m */; };
+		BE1587DF1A7D1F3800B0D8ED /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1587DE1A7D1F3800B0D8ED /* MultipeerConnectivity.framework */; };
+		BE1587E21A7D235C00B0D8ED /* DataTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1587E11A7D235C00B0D8ED /* DataTransferViewController.m */; };
+		BE3736B71A7D6BA1002098C2 /* HobbyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,12 @@
 		BE1587CC1A7CD11500B0D8ED /* AMTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTagView.m; sourceTree = "<group>"; };
 		BE1587D31A7CD39A00B0D8ED /* InterestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestsViewController.h; sourceTree = "<group>"; };
 		BE1587D41A7CD39A00B0D8ED /* InterestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsViewController.m; sourceTree = "<group>"; };
+		BE1587D61A7D0CB500B0D8ED /* Colours.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
+		BE1587DE1A7D1F3800B0D8ED /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		BE1587E01A7D235C00B0D8ED /* DataTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransferViewController.h; sourceTree = "<group>"; };
+		BE1587E11A7D235C00B0D8ED /* DataTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferViewController.m; sourceTree = "<group>"; };
+		BE3736B51A7D6BA1002098C2 /* HobbyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HobbyTableViewController.h; path = Rendezvous/HobbyTableViewController.h; sourceTree = "<group>"; };
+		BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HobbyTableViewController.m; path = Rendezvous/HobbyTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1587DF1A7D1F3800B0D8ED /* MultipeerConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +79,8 @@
 		BE15878E1A7CBF3F00B0D8ED = {
 			isa = PBXGroup;
 			children = (
+				BE3736B51A7D6BA1002098C2 /* HobbyTableViewController.h */,
+				BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */,
 				BE1587991A7CBF3F00B0D8ED /* Rendezvous */,
 				BE1587B61A7CBF3F00B0D8ED /* RendezvousTests */,
 				BE1587981A7CBF3F00B0D8ED /* Products */,
@@ -87,6 +99,9 @@
 		BE1587991A7CBF3F00B0D8ED /* Rendezvous */ = {
 			isa = PBXGroup;
 			children = (
+				BE1587D61A7D0CB500B0D8ED /* Colours.h */,
+				BE1587E01A7D235C00B0D8ED /* DataTransferViewController.h */,
+				BE1587E11A7D235C00B0D8ED /* DataTransferViewController.m */,
 				BE1587D31A7CD39A00B0D8ED /* InterestsViewController.h */,
 				BE1587D41A7CD39A00B0D8ED /* InterestsViewController.m */,
 				BE15879E1A7CBF3F00B0D8ED /* AppDelegate.h */,
@@ -103,6 +118,7 @@
 		BE15879A1A7CBF3F00B0D8ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE1587DE1A7D1F3800B0D8ED /* MultipeerConnectivity.framework */,
 				BE15879B1A7CBF3F00B0D8ED /* Info.plist */,
 				BE15879C1A7CBF3F00B0D8ED /* main.m */,
 			);
@@ -186,6 +202,7 @@
 				TargetAttributes = {
 					BE1587961A7CBF3F00B0D8ED = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 9W6V64K3PA;
 					};
 					BE1587B21A7CBF3F00B0D8ED = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -238,10 +255,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1587A01A7CBF3F00B0D8ED /* AppDelegate.m in Sources */,
+				BE1587E21A7D235C00B0D8ED /* DataTransferViewController.m in Sources */,
 				BE1587CD1A7CD11500B0D8ED /* AMTagListView.m in Sources */,
 				BE1587CE1A7CD11500B0D8ED /* AMTagView.m in Sources */,
 				BE15879D1A7CBF3F00B0D8ED /* main.m in Sources */,
 				BE1587D51A7CD39A00B0D8ED /* InterestsViewController.m in Sources */,
+				BE3736B71A7D6BA1002098C2 /* HobbyTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,10 +382,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rendezvous/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -374,10 +396,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rendezvous/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -434,6 +459,7 @@
 				BE1587BF1A7CBF3F00B0D8ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE1587C01A7CBF3F00B0D8ED /* Build configuration list for PBXNativeTarget "RendezvousTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +468,7 @@
 				BE1587C21A7CBF3F00B0D8ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

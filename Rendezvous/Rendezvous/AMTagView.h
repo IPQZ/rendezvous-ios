@@ -16,7 +16,6 @@
 #define kDefaultRadius			8
 #define kDefaultTextColor		[UIColor whiteColor]
 #define kDefaultFont			[UIFont systemFontOfSize:16]
-#define kDefaultTagColor		[UIColor redColor]
 #define kDefaultInnerTagColor	[UIColor colorWithWhite:1 alpha:0.3]
 
 extern NSString * const AMTagViewNotification;

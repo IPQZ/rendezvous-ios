@@ -7,6 +7,7 @@
 //
 
 #import "AMTagView.h"
+#import "Colours.h"
 
 NSString * const AMTagViewNotification = @"AMTagViewNotification";
 
@@ -32,7 +33,7 @@ NSString * const AMTagViewNotification = @"AMTagViewNotification";
     [[AMTagView appearance] setTextPadding:kDefaultTextPadding];
     [[AMTagView appearance] setTextFont:kDefaultFont];
     [[AMTagView appearance] setTextColor:kDefaultTextColor];
-    [[AMTagView appearance] setTagColor:kDefaultTagColor];
+    [[AMTagView appearance] setTagColor:kTagColour];
     [[AMTagView appearance] setInnerTagColor:kDefaultInnerTagColor];
 }
 
