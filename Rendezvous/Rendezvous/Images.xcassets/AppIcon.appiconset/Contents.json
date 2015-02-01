@@ -13,25 +13,25 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Icon80.png",
+      "filename" : "80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Icon120-1.png",
+      "filename" : "120-1.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Icon120.png",
+      "filename" : "120.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Icon180.png",
+      "filename" : "180.png",
       "scale" : "3x"
     }
   ],
