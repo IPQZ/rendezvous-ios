@@ -205,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="1765" y="64"/>
         </scene>
-        <!--Activity View Controller-->
+        <!--Your Date Location-->
         <scene sceneID="NPr-q5-xrQ">
             <objects>
                 <viewController id="N2A-FE-Eze" customClass="ActivityViewController" sceneMemberID="viewController">
@@ -217,9 +217,6 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-4v-nIK">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
-                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HL3-uX-ree">
                                 <rect key="frame" x="0.0" y="300" width="600" height="300"/>
                                 <subviews>
@@ -229,20 +226,23 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIi-sy-Jhe">
-                                        <rect key="frame" x="20" y="52" width="560" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIi-sy-Jhe">
+                                        <rect key="frame" x="20" y="52" width="560" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="rTP-gz-X5B"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnT-ec-gYg">
-                                        <rect key="frame" x="20" y="84" width="286" height="24"/>
+                                        <rect key="frame" x="20" y="116" width="286" height="24"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXr-mF-V9a">
-                                        <rect key="frame" x="306" y="84" width="286" height="24"/>
+                                        <rect key="frame" x="306" y="116" width="286" height="24"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -268,6 +268,12 @@
                                     <outletCollection property="gestureRecognizers" destination="JFP-OY-ff6" appends="YES" id="CRT-EX-VBA"/>
                                 </connections>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-4v-nIK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <connections>
+                                    <outlet property="delegate" destination="N2A-FE-Eze" id="8Nf-fe-37K"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -304,8 +310,26 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Your Date Location" id="jaw-Uy-P5M">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="0gz-19-IfF">
+                            <connections>
+                                <action selector="Back:" destination="N2A-FE-Eze" id="gbw-jW-7qz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="address" destination="WIi-sy-Jhe" id="wyo-H1-psT"/>
+                        <outlet property="map" destination="oWf-4v-nIK" id="n2z-k1-9cR"/>
+                        <outlet property="name" destination="Vso-F8-13v" id="pZi-6d-WNg"/>
+                        <outlet property="open" destination="nXr-mF-V9a" id="xTT-o1-a8e"/>
+                        <outlet property="rating" destination="fnT-ec-gYg" id="Pwe-gw-4JM"/>
+                    </connections>
                 </viewController>
-                <swipeGestureRecognizer direction="right" id="JFP-OY-ff6"/>
+                <swipeGestureRecognizer direction="right" id="JFP-OY-ff6">
+                    <connections>
+                        <action selector="Back:" destination="N2A-FE-Eze" id="WQX-H5-D98"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtt-w3-mcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3166" y="64"/>

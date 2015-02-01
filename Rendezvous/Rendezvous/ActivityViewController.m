@@ -7,6 +7,7 @@
 //
 
 #import "ActivityViewController.h"
+#import "MapAnnotation.h"
 
 @implementation NSString (NSString_Extended)
 
@@ -43,8 +44,11 @@
 
 @implementation ActivityViewController
 
+@synthesize map, name, open, rating, address;
+
 
 NSArray *yelpLocations;
+MapAnnotation *anot;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -65,6 +69,8 @@ NSArray *yelpLocations;
     [locationManager startUpdatingLocation];
     userCoords = [locationManager location].coordinate;
     
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -84,7 +90,6 @@ NSArray *yelpLocations;
     
     NSString *location = [NSString stringWithFormat:@"http://rendezvous.mybluemix.net/hobby?term=%@&location=[%f,%f]",
                           [hobbyName urlencode], coords.latitude, coords.longitude];
-    NSLog(@"%@", location);
     NSURL *url = [[NSURL alloc] initWithString:location];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
@@ -94,7 +99,6 @@ NSArray *yelpLocations;
      {
          
          NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-         NSLog(@"%@", data);
          for (NSMutableDictionary *dict in JSONData)
          {
              YelpData *yelp = [[YelpData alloc] init];
@@ -108,6 +112,27 @@ NSArray *yelpLocations;
          
          dispatch_async(dispatch_get_main_queue(), ^{
               yelpLocations = [NSArray arrayWithArray: yelpData];
+             
+             if (yelpLocations.count !=0) {
+                 name.text = ((YelpData *)yelpLocations[0]).name;
+                 address.text = ((YelpData *)yelpLocations[0]).address;
+                 rating.text = [NSString stringWithFormat:@"%.01f Stars", ((YelpData *)yelpLocations[0]).rating];
+                 open.text = ((YelpData *)yelpLocations[0]).isClosed ? @"Closed" : @"Open";
+             }
+             
+             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+             
+             [geocoder geocodeAddressString:address.text
+                          completionHandler:^(NSArray* placemarks, NSError* error){
+                              for (CLPlacemark* aPlacemark in placemarks)
+                              {
+                                  [map setRegion:MKCoordinateRegionMake(aPlacemark.location.coordinate, MKCoordinateSpanMake(0.60001, 0.60001 )) animated:YES];
+                                  anot = [[MapAnnotation alloc]initWithTitle:name.text  AndCoordinate:aPlacemark.location.coordinate];
+                                  [map addAnnotation:anot];
+                              }
+                              
+                          }];
+             
              
              //UPDATE GUI ACCORDINGLY
          });
@@ -141,6 +166,12 @@ NSArray *yelpLocations;
     
      NSLog(@"%f %f", crnLoc.coordinate.longitude, crnLoc.coordinate.latitude);
 }
+
+- (IBAction)Back:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 /*
 #pragma mark - Navigation

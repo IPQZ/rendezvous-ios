@@ -16,9 +16,14 @@
     CLLocationCoordinate2D userCoords;
 }
 
-@property (nonatomic, strong) IBOutlet MKAnnotationView *map;
+@property (nonatomic, strong) IBOutlet MKMapView *map;
+@property (nonatomic, strong) IBOutlet UILabel *name;
+@property (nonatomic, strong) IBOutlet UILabel *address;
+@property (nonatomic, strong) IBOutlet UILabel *rating;
+@property (nonatomic, strong) IBOutlet UILabel *open;
 
 -(void)getYelpApiStuff:(NSString *)hobbyName;
+- (IBAction)Back:(id)sender;
 
 @end
 

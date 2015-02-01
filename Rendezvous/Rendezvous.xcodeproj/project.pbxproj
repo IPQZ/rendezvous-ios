@@ -27,6 +27,7 @@
 		BE82C1B71A7E03CC0081CC59 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE82C1B61A7E03CC0081CC59 /* MapKit.framework */; };
 		BE82C1B91A7E0CB40081CC59 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE82C1B81A7E0CB40081CC59 /* CoreLocation.framework */; };
 		BE82C1BB1A7E14980081CC59 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE82C1BA1A7E14980081CC59 /* QuartzCore.framework */; };
+		BE852A821A7E317B00ECA5C0 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE852A811A7E317B00ECA5C0 /* MapAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		BE82C1B61A7E03CC0081CC59 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BE82C1B81A7E0CB40081CC59 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BE82C1BA1A7E14980081CC59 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BE852A801A7E317B00ECA5C0 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		BE852A811A7E317B00ECA5C0 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				BE1587A71A7CBF3F00B0D8ED /* Main.storyboard */,
 				BE3739A71A7E01CF004ABEDD /* ActivityViewController.h */,
 				BE3739A81A7E01CF004ABEDD /* ActivityViewController.m */,
+				BE852A801A7E317B00ECA5C0 /* MapAnnotation.h */,
+				BE852A811A7E317B00ECA5C0 /* MapAnnotation.m */,
 				BE1587CF1A7CD11B00B0D8ED /* AMTag */,
 				BE1587AA1A7CBF3F00B0D8ED /* Images.xcassets */,
 				BE1587AC1A7CBF3F00B0D8ED /* LaunchScreen.xib */,
@@ -301,6 +306,7 @@
 				BE1587D51A7CD39A00B0D8ED /* InterestsViewController.m in Sources */,
 				BE3736BD1A7DBC6B002098C2 /* HobbyTableViewCell.m in Sources */,
 				BE3739A61A7E018C004ABEDD /* HourlyViewController.m in Sources */,
+				BE852A821A7E317B00ECA5C0 /* MapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
