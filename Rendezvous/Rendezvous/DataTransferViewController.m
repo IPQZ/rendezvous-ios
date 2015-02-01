@@ -177,7 +177,7 @@ NSMutableArray *response;
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     dispatch_async(dispatch_get_main_queue(), ^{
-        _outputLbl.text = @"Searching...";
+        _outputLbl.text = @"Looking for a partner device";
         [self start];
     });
 }
