@@ -9,14 +9,14 @@
 
 #define DEGREES_TO_RADIANS(degrees)  ((3.14159265359 * degrees)/ 180)
 
-#define kDefaultInnerPadding	3
+#define kDefaultInnerPadding	5
 #define kDefaultHoleRadius		4
 #define kDefaultTagLength		0
-#define kDefaultTextPadding		10
-#define kDefaultRadius			8
+#define kDefaultTextPadding		25
+#define kDefaultRadius			10
 #define kDefaultTextColor		[UIColor whiteColor]
-#define kDefaultFont			[UIFont systemFontOfSize:16]
-#define kDefaultInnerTagColor	[UIColor colorWithWhite:1 alpha:0.3]
+#define kDefaultFont			[UIFont systemFontOfSize:20]
+#define kDefaultInnerTagColor	[UIColor colorWithWhite:1 alpha:0.0]
 
 extern NSString * const AMTagViewNotification;
 

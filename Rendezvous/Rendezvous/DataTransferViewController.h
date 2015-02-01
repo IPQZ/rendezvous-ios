@@ -18,10 +18,11 @@
 @property (nonatomic, strong) MCSession *session;
 @property (nonatomic, strong) MCNearbyServiceAdvertiser *serviceAdvertiser;
 @property (nonatomic, strong) MCNearbyServiceBrowser *nearbyServiceBrowser;
+@property (nonatomic, strong) NSMutableArray *parsedData;
+@property (nonatomic, strong) IBOutlet UILabel *outputLbl;
 
 - (IBAction)Back:(id)sender;
-- (IBAction)Next:(id)sender;
-
+- (void)next;
 
 
 @end

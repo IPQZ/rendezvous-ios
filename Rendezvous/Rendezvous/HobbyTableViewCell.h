@@ -1,5 +1,5 @@
 //
-//  HobbyTableViewController.h
+//  HobbyTableViewCell.h
 //  Rendezvous
 //
 //  Created by Phil Bystrican on 2015-01-31.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HobbyTableViewController : UITableViewController
+@interface HobbyTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) NSMutableArray *hobbyData;
+@property (nonatomic, strong) IBOutlet UILabel *hobbyName;
 
 @end

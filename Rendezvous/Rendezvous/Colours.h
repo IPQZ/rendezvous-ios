@@ -9,7 +9,7 @@
 #ifndef Rendezvous_Colours_h
 #define Rendezvous_Colours_h
 
-#define kTagColour [UIColor redColor]
-#define kTagSelectedColour [UIColor blueColor]
+#define kTagSelectedColour [UIColor colorWithRed:60.0f/256.0f green:184.0f/256.0f blue:120.0f/256.0f alpha:1.0f]
+#define kTagColour [UIColor colorWithRed:209.0f/256.0f green:209.0f/256.0f blue:204.0f/256.0f alpha:1.0f]
 
 #endif

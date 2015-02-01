@@ -41,8 +41,8 @@
 - (void)setup
 {
     // Default margins
-    _marginX = 4;
-    _marginY = 4;
+    _marginX = 10;
+    _marginY = 10;
     self.clipsToBounds = YES;
     _tags = [@[] mutableCopy];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -160,10 +160,16 @@
     [self.subviews enumerateObjectsUsingBlock:^(UIView* obj, NSUInteger idx, BOOL *stop) {
         [obj removeFromSuperview];
     }];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    
     __block float maxY = 5;
     __block float maxX = 0;
     __block CGSize size;
-    for (AMTagView *obj in self.tags) {
+    for (int i = 0; i < self.tags.count; i++) {
+        AMTagView *obj = self.tags[i];
+        
         size = obj.frame.size;
         [self.subviews enumerateObjectsUsingBlock:^(UIView* obj, NSUInteger idx, BOOL *stop) {
             if ([obj isKindOfClass:[AMTagView class]]) {
@@ -181,11 +187,85 @@
         
         // Go to a new line if the tag won't fit
         if (size.width + maxX > (self.frame.size.width - self.marginX)) {
+            int j = i-1;
+            CGFloat jTagY = -1.0;
+            NSMutableArray *row = [[NSMutableArray alloc]init];
+            CGFloat rowWidth = 0;
+            while (j >= 0)
+            {
+                AMTagView *jTag = self.tags[j];
+                CGFloat frameJx = jTag.frame.size.width;
+                CGFloat frameJy = jTag.frame.origin.y;
+                
+                if (jTagY == -1)
+                {
+                    jTagY = frameJy;
+                    rowWidth += (frameJx + self.marginX);
+                    [row addObject:jTag];
+                }
+                else if (abs(jTagY - frameJy) < 0.1) {
+                    rowWidth += (frameJx + self.marginX);
+                    [row addObject:jTag];
+                }
+                else
+                {
+                    break;
+                }
+                
+                j--;
+            }
+            
+            CGFloat padding = -5 + (screenWidth - (rowWidth))/2;
+            
+            for (AMTagView *jTag in row)
+            {
+                
+                
+                jTag.frame = (CGRect){jTag.frame.origin.x + padding, jTag.frame.origin.y, jTag.frame.size.width, jTag.frame.size.height};
+            }
+            
             maxY += size.height + self.marginY;
             maxX = 0;
         }
         obj.frame = (CGRect){maxX + self.marginX, maxY, size.width, size.height};
         [self addSubview:obj];
+        
+        if (i == self.tags.count-1) {
+            int j = i;
+            CGFloat jTagY = -1.0;
+            NSMutableArray *row = [[NSMutableArray alloc]init];
+            CGFloat rowWidth = 0;
+            while (j >= 0)
+            {
+                AMTagView *jTag = self.tags[j];
+                CGFloat frameJx = jTag.frame.size.width;
+                CGFloat frameJy = jTag.frame.origin.y;
+                
+                if (jTagY == -1)
+                {
+                    jTagY = frameJy;
+                    rowWidth += (frameJx + self.marginX);
+                    [row addObject:jTag];
+                }
+                else if (abs(jTagY - frameJy) < 0.1) {
+                    rowWidth += (frameJx + self.marginX);
+                    [row addObject:jTag];
+                }
+                else
+                {
+                    break;
+                }
+                
+                j--;
+            }
+        
+            CGFloat padding = -5 + (screenWidth - (rowWidth))/2;
+            
+            for (AMTagView *jTag in row)
+            {
+                jTag.frame = (CGRect){jTag.frame.origin.x + padding, jTag.frame.origin.y, jTag.frame.size.width, jTag.frame.size.height};
+            }
+        }
     };
     
     [self setContentSize:(CGSize){self.frame.size.width, maxY + size.height +self.marginY}];

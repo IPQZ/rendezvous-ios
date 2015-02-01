@@ -106,7 +106,6 @@ NSMutableDictionary *interests;
         {
             entriesToSend[i] = interests[selectedItems[i]];
         }
-        
         dest.idsToSend = entriesToSend;
     }
 }

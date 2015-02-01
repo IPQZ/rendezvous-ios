@@ -14,9 +14,12 @@
 
 @implementation AppDelegate
 
+@synthesize hobbyArray;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    hobbyArray = [[NSMutableArray alloc]init];
     return YES;
 }
 

@@ -8,6 +8,7 @@
 
 #import "DataTransferViewController.h"
 #import "HobbyTableViewController.h"
+#import "AppDelegate.h"
 
 
 @interface DataTransferViewController ()
@@ -17,7 +18,7 @@
 @implementation DataTransferViewController
 
 
-@synthesize devicePeerID, session, serviceAdvertiser, nearbyServiceBrowser, idsToSend;
+@synthesize devicePeerID, session, serviceAdvertiser, nearbyServiceBrowser, idsToSend, parsedData;
 
 static NSString * const serviceType = @"rendezvous";
 NSMutableArray *response;
@@ -29,6 +30,7 @@ NSMutableArray *response;
     [super viewDidLoad];
     
     response = [[NSMutableArray alloc]init];
+    parsedData = [[NSMutableArray alloc]init];
     devicePeerID = [[MCPeerID alloc] initWithDisplayName:@"Test"];
     
     session = [[MCSession alloc] initWithPeer:devicePeerID securityIdentity:nil encryptionPreference:MCEncryptionNone];
@@ -40,9 +42,6 @@ NSMutableArray *response;
     
     nearbyServiceBrowser = [[MCNearbyServiceBrowser alloc] initWithPeer:devicePeerID serviceType:serviceType];
     nearbyServiceBrowser.delegate = self;
-    
-    [self start];
-
 }
 
 - (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void (^)(BOOL, MCSession *))invitationHandler {
@@ -94,6 +93,9 @@ NSMutableArray *response;
         case MCSessionStateConnected: {
             
             NSLog(@"Connected to %@", peerID);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _outputLbl.text = @"Connected!";
+            });
             
             //  If you'd like to send your text string as soon as you're connected...
             NSError *error;
@@ -103,9 +105,15 @@ NSMutableArray *response;
             break;
         } case MCSessionStateConnecting: {
             NSLog(@"Connecting to %@", peerID);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _outputLbl.text = @"Connecting...";
+            });
             
             break;
         } case MCSessionStateNotConnected: {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _outputLbl.text = @"Searching...";
+            });
             break;
         }
     }
@@ -115,6 +123,11 @@ NSMutableArray *response;
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
     NSLog(@"Did receive data.");
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _outputLbl.text = @"Downloading...";
+    });
+    
+    
     response = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
     //merge the two arrays
@@ -122,6 +135,7 @@ NSMutableArray *response;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:unionOfIds options:kNilOptions error:nil];
     NSString *jsonSring = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
     NSString *location = [NSString stringWithFormat:@"http://rendezvous.mybluemix.net/analyze?interests=%@", jsonSring];
     NSURL *url = [[NSURL alloc] initWithString:location];
@@ -129,11 +143,22 @@ NSMutableArray *response;
     [request setHTTPMethod:@"GET"];
     
     //this is BAD but will work for the demo
-    NSData *hobbiesData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *output = [[NSString alloc] initWithData:hobbiesData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", output);
-    
-    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+    {
+        NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        for (NSMutableDictionary *dict in JSONData)
+        {
+            NSString *hobbyName = dict[@"hobby_name"];
+            [parsedData addObject:hobbyName];
+            
+        }
+      
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self next];
+        });
+
+    }];
 }
 
 - (void)start {
@@ -149,6 +174,10 @@ NSMutableArray *response;
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _outputLbl.text = @"Searching...";
+        [self start];
+    });
 }
 
 - (IBAction)Back:(id)sender
@@ -158,11 +187,11 @@ NSMutableArray *response;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)Next:(id)sender
+- (void)next
 {
-    if (response.count == 0) {
+    if (parsedData.count == 0) {
         
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Please Wait" message:@"Data has not been received from partner's device." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"ERROR!" message:@"No Hobbies!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         
         [alert show];
 
@@ -179,10 +208,8 @@ NSMutableArray *response;
 {
     if ([[segue identifier] isEqualToString: @"Hobby"]) {
         HobbyTableViewController *dest = (HobbyTableViewController *)[segue destinationViewController];
-        //the sender is what you pass into the previous method
-        
-        NSLog(@"GOOD");
-        dest.hobbies = response;
+
+        ((AppDelegate *)[[UIApplication sharedApplication] delegate]).hobbyArray = parsedData.copy;
     }
 }
 

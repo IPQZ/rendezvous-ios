@@ -19,6 +19,7 @@
 		BE1587DF1A7D1F3800B0D8ED /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1587DE1A7D1F3800B0D8ED /* MultipeerConnectivity.framework */; };
 		BE1587E21A7D235C00B0D8ED /* DataTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1587E11A7D235C00B0D8ED /* DataTransferViewController.m */; };
 		BE3736B71A7D6BA1002098C2 /* HobbyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */; };
+		BE3736BD1A7DBC6B002098C2 /* HobbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3736BC1A7DBC6B002098C2 /* HobbyTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +54,10 @@
 		BE1587DE1A7D1F3800B0D8ED /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		BE1587E01A7D235C00B0D8ED /* DataTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransferViewController.h; sourceTree = "<group>"; };
 		BE1587E11A7D235C00B0D8ED /* DataTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferViewController.m; sourceTree = "<group>"; };
-		BE3736B51A7D6BA1002098C2 /* HobbyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HobbyTableViewController.h; path = Rendezvous/HobbyTableViewController.h; sourceTree = "<group>"; };
-		BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HobbyTableViewController.m; path = Rendezvous/HobbyTableViewController.m; sourceTree = "<group>"; };
+		BE3736B51A7D6BA1002098C2 /* HobbyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HobbyTableViewController.h; sourceTree = "<group>"; };
+		BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HobbyTableViewController.m; sourceTree = "<group>"; };
+		BE3736BB1A7DBC6B002098C2 /* HobbyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HobbyTableViewCell.h; sourceTree = "<group>"; };
+		BE3736BC1A7DBC6B002098C2 /* HobbyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HobbyTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +82,6 @@
 		BE15878E1A7CBF3F00B0D8ED = {
 			isa = PBXGroup;
 			children = (
-				BE3736B51A7D6BA1002098C2 /* HobbyTableViewController.h */,
-				BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */,
 				BE1587991A7CBF3F00B0D8ED /* Rendezvous */,
 				BE1587B61A7CBF3F00B0D8ED /* RendezvousTests */,
 				BE1587981A7CBF3F00B0D8ED /* Products */,
@@ -99,7 +100,10 @@
 		BE1587991A7CBF3F00B0D8ED /* Rendezvous */ = {
 			isa = PBXGroup;
 			children = (
-				BE1587D61A7D0CB500B0D8ED /* Colours.h */,
+				BE3736BB1A7DBC6B002098C2 /* HobbyTableViewCell.h */,
+				BE3736BC1A7DBC6B002098C2 /* HobbyTableViewCell.m */,
+				BE3736B51A7D6BA1002098C2 /* HobbyTableViewController.h */,
+				BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */,
 				BE1587E01A7D235C00B0D8ED /* DataTransferViewController.h */,
 				BE1587E11A7D235C00B0D8ED /* DataTransferViewController.m */,
 				BE1587D31A7CD39A00B0D8ED /* InterestsViewController.h */,
@@ -118,6 +122,7 @@
 		BE15879A1A7CBF3F00B0D8ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE1587D61A7D0CB500B0D8ED /* Colours.h */,
 				BE1587DE1A7D1F3800B0D8ED /* MultipeerConnectivity.framework */,
 				BE15879B1A7CBF3F00B0D8ED /* Info.plist */,
 				BE15879C1A7CBF3F00B0D8ED /* main.m */,
@@ -260,6 +265,7 @@
 				BE1587CE1A7CD11500B0D8ED /* AMTagView.m in Sources */,
 				BE15879D1A7CBF3F00B0D8ED /* main.m in Sources */,
 				BE1587D51A7CD39A00B0D8ED /* InterestsViewController.m in Sources */,
+				BE3736BD1A7DBC6B002098C2 /* HobbyTableViewCell.m in Sources */,
 				BE3736B71A7D6BA1002098C2 /* HobbyTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
