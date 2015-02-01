@@ -24,6 +24,7 @@
 		BE5A3BFD1A7DF1A70034039F /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5A3BFC1A7DF1A70034039F /* circle.png */; };
 		BE5A3C001A7DF7AB0034039F /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5A3BFF1A7DF7AB0034039F /* WelcomeViewController.m */; };
 		BE5A3C031A7DFD340034039F /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5A3C021A7DFD340034039F /* SuggestionViewController.m */; };
+		E8E4DC641A7E13D70061F8EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E4DC631A7E13D70061F8EB /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		BE5A3BFF1A7DF7AB0034039F /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		BE5A3C011A7DFD340034039F /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
 		BE5A3C021A7DFD340034039F /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
+		E8E4DC631A7E13D70061F8EB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8E4DC641A7E13D70061F8EB /* QuartzCore.framework in Frameworks */,
 				BE1587DF1A7D1F3800B0D8ED /* MultipeerConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +96,7 @@
 		BE15878E1A7CBF3F00B0D8ED = {
 			isa = PBXGroup;
 			children = (
+				E8E4DC631A7E13D70061F8EB /* QuartzCore.framework */,
 				BE1587991A7CBF3F00B0D8ED /* Rendezvous */,
 				BE1587B61A7CBF3F00B0D8ED /* RendezvousTests */,
 				BE1587981A7CBF3F00B0D8ED /* Products */,
