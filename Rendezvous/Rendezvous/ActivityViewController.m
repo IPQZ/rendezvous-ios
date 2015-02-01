@@ -8,6 +8,29 @@
 
 #import "ActivityViewController.h"
 
+@implementation NSString (NSString_Extended)
+
+- (NSString *)urlencode {
+    NSMutableString *output = [NSMutableString string];
+    const unsigned char *source = (const unsigned char *)[self UTF8String];
+    int sourceLen = strlen((const char *)source);
+    for (int i = 0; i < sourceLen; ++i) {
+        const unsigned char thisChar = source[i];
+        if (thisChar == ' '){
+            [output appendString:@"+"];
+        } else if (thisChar == '.' || thisChar == '-' || thisChar == '_' || thisChar == '~' ||
+                   (thisChar >= 'a' && thisChar <= 'z') ||
+                   (thisChar >= 'A' && thisChar <= 'Z') ||
+                   (thisChar >= '0' && thisChar <= '9')) {
+            [output appendFormat:@"%c", thisChar];
+        } else {
+            [output appendFormat:@"%%%02X", thisChar];
+        }
+    }
+    return output;
+}
+@end
+
 
 @interface ActivityViewController ()
 
@@ -27,28 +50,41 @@ NSArray *yelpLocations;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     yelpLocations = [[NSArray alloc]init];
+}
+
+- (void)startStandardUpdates
+{
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == locationManager)
+        locationManager = [[CLLocationManager alloc] init];
     
-    locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-        [locationManager requestWhenInUseAuthorization];
-    
+    [locationManager requestWhenInUseAuthorization];
     [locationManager startUpdatingLocation];
+    userCoords = [locationManager location].coordinate;
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self startStandardUpdates];
 }
 
 -(void)getYelpApiStuff:(NSString *)hobbyName
 {
-    CLLocationCoordinate2D coords;
-    coords = [locationManager location].coordinate;
     
+    [self startStandardUpdates];
+    
+    CLLocationCoordinate2D coords = [locationManager location].coordinate;
     NSMutableArray *yelpData = [[NSMutableArray alloc] init];
 
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
-    NSString *location = [NSString stringWithFormat:@"http://rendezvous.mybluemix.net/hobby?term=%@&location=[%f,%f]", hobbyName, coords.latitude, coords.longitude];
+    NSString *location = [NSString stringWithFormat:@"http://rendezvous.mybluemix.net/hobby?term=%@&location=[%f,%f]",
+                          [hobbyName urlencode], coords.latitude, coords.longitude];
+    NSLog(@"%@", location);
     NSURL *url = [[NSURL alloc] initWithString:location];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
@@ -56,8 +92,9 @@ NSArray *yelpLocations;
     
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
      {
-         NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
          
+         NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+         NSLog(@"%@", data);
          for (NSMutableDictionary *dict in JSONData)
          {
              YelpData *yelp = [[YelpData alloc] init];
@@ -79,11 +116,30 @@ NSArray *yelpLocations;
 }
 
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     //http://rendezvous.mybluemix.net/hobby?term=hobbygoeshere&location=[LAT,LONG]
+}
+
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    
+    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    
+    [errorAlert show];
+    
+    NSLog(@"Error: %@",error.description);
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *crnLoc = [locations lastObject];
+    
+    userCoords = crnLoc.coordinate;
+    
+     NSLog(@"%f %f", crnLoc.coordinate.longitude, crnLoc.coordinate.latitude);
 }
 
 /*
@@ -97,3 +153,4 @@ NSArray *yelpLocations;
 */
 
 @end
+

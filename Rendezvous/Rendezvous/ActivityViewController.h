@@ -13,6 +13,7 @@
 @interface ActivityViewController : UIViewController <CLLocationManagerDelegate>
 {
     CLLocationManager *locationManager;
+    CLLocationCoordinate2D userCoords;
 }
 
 @property (nonatomic, strong) IBOutlet MKAnnotationView *map;

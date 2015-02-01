@@ -102,7 +102,6 @@
 		BE15878E1A7CBF3F00B0D8ED = {
 			isa = PBXGroup;
 			children = (
-				BE82C1BA1A7E14980081CC59 /* QuartzCore.framework */,
 				BE1587991A7CBF3F00B0D8ED /* Rendezvous */,
 				BE1587B61A7CBF3F00B0D8ED /* RendezvousTests */,
 				BE1587981A7CBF3F00B0D8ED /* Products */,
@@ -149,11 +148,12 @@
 		BE15879A1A7CBF3F00B0D8ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE5A3BFC1A7DF1A70034039F /* circle.png */,
-				BE1587D61A7D0CB500B0D8ED /* Colours.h */,
+				BE82C1BA1A7E14980081CC59 /* QuartzCore.framework */,
 				BE82C1B81A7E0CB40081CC59 /* CoreLocation.framework */,
 				BE82C1B61A7E03CC0081CC59 /* MapKit.framework */,
 				BE1587DE1A7D1F3800B0D8ED /* MultipeerConnectivity.framework */,
+				BE5A3BFC1A7DF1A70034039F /* circle.png */,
+				BE1587D61A7D0CB500B0D8ED /* Colours.h */,
 				BE15879B1A7CBF3F00B0D8ED /* Info.plist */,
 				BE15879C1A7CBF3F00B0D8ED /* main.m */,
 			);
