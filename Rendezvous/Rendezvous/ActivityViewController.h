@@ -7,7 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ActivityViewController : UIViewController
+@interface ActivityViewController : UIViewController <CLLocationManagerDelegate>
+{
+    CLLocationManager *locationManager;
+}
+
+@property (nonatomic, strong) IBOutlet MKAnnotationView *map;
+
+@end
+
+@interface YelpData : NSObject
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic) double rating;
+@property (nonatomic, strong) NSString *imageUrl;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic) bool isClosed;
 
 @end
