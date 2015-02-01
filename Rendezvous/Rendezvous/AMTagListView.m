@@ -164,7 +164,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     
-    __block float maxY = 5;
+    __block float maxY = 10;
     __block float maxX = 0;
     __block CGSize size;
     for (int i = 0; i < self.tags.count; i++) {
