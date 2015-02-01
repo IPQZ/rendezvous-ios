@@ -10,6 +10,6 @@
 
 @interface HobbyTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *hobbyName;
+@property (nonatomic, strong) IBOutlet UIButton *hobbyName;
 
 @end

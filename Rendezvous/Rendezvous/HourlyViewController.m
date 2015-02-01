@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 IPQZ. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "HourlyViewController.h"
 #import "HobbyTableViewCell.h"
 #import "AppDelegate.h"
@@ -52,7 +53,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HobbyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"hobbiesCell" forIndexPath:indexPath];
-    cell.hobbyName.text = hobbyData[indexPath.row];
+    [cell.hobbyName setTitle:hobbyData[indexPath.row] forState:UIControlStateNormal];
+    
+    cell.hobbyName.layer.cornerRadius = 5;
+    cell.hobbyName.layer.masksToBounds = YES;
+    
     NSLog(@"%@",hobbyData[indexPath.row]);
     return cell;
 }
