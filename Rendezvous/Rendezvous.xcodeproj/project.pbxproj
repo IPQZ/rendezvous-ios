@@ -20,6 +20,9 @@
 		BE1587E21A7D235C00B0D8ED /* DataTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1587E11A7D235C00B0D8ED /* DataTransferViewController.m */; };
 		BE3736B71A7D6BA1002098C2 /* HobbyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */; };
 		BE3736BD1A7DBC6B002098C2 /* HobbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3736BC1A7DBC6B002098C2 /* HobbyTableViewCell.m */; };
+		BE5A3BFD1A7DF1A70034039F /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5A3BFC1A7DF1A70034039F /* circle.png */; };
+		BE5A3C001A7DF7AB0034039F /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5A3BFF1A7DF7AB0034039F /* WelcomeViewController.m */; };
+		BE5A3C031A7DFD340034039F /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5A3C021A7DFD340034039F /* SuggestionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,11 @@
 		BE3736B61A7D6BA1002098C2 /* HobbyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HobbyTableViewController.m; sourceTree = "<group>"; };
 		BE3736BB1A7DBC6B002098C2 /* HobbyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HobbyTableViewCell.h; sourceTree = "<group>"; };
 		BE3736BC1A7DBC6B002098C2 /* HobbyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HobbyTableViewCell.m; sourceTree = "<group>"; };
+		BE5A3BFC1A7DF1A70034039F /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		BE5A3BFE1A7DF7AB0034039F /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		BE5A3BFF1A7DF7AB0034039F /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		BE5A3C011A7DFD340034039F /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
+		BE5A3C021A7DFD340034039F /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,10 @@
 				BE1587E11A7D235C00B0D8ED /* DataTransferViewController.m */,
 				BE1587D31A7CD39A00B0D8ED /* InterestsViewController.h */,
 				BE1587D41A7CD39A00B0D8ED /* InterestsViewController.m */,
+				BE5A3C011A7DFD340034039F /* SuggestionViewController.h */,
+				BE5A3C021A7DFD340034039F /* SuggestionViewController.m */,
+				BE5A3BFE1A7DF7AB0034039F /* WelcomeViewController.h */,
+				BE5A3BFF1A7DF7AB0034039F /* WelcomeViewController.m */,
 				BE15879E1A7CBF3F00B0D8ED /* AppDelegate.h */,
 				BE15879F1A7CBF3F00B0D8ED /* AppDelegate.m */,
 				BE1587A71A7CBF3F00B0D8ED /* Main.storyboard */,
@@ -122,6 +134,7 @@
 		BE15879A1A7CBF3F00B0D8ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE5A3BFC1A7DF1A70034039F /* circle.png */,
 				BE1587D61A7D0CB500B0D8ED /* Colours.h */,
 				BE1587DE1A7D1F3800B0D8ED /* MultipeerConnectivity.framework */,
 				BE15879B1A7CBF3F00B0D8ED /* Info.plist */,
@@ -239,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5A3BFD1A7DF1A70034039F /* circle.png in Resources */,
 				BE1587A91A7CBF3F00B0D8ED /* Main.storyboard in Resources */,
 				BE1587AE1A7CBF3F00B0D8ED /* LaunchScreen.xib in Resources */,
 				BE1587AB1A7CBF3F00B0D8ED /* Images.xcassets in Resources */,
@@ -261,9 +275,11 @@
 			files = (
 				BE1587A01A7CBF3F00B0D8ED /* AppDelegate.m in Sources */,
 				BE1587E21A7D235C00B0D8ED /* DataTransferViewController.m in Sources */,
+				BE5A3C001A7DF7AB0034039F /* WelcomeViewController.m in Sources */,
 				BE1587CD1A7CD11500B0D8ED /* AMTagListView.m in Sources */,
 				BE1587CE1A7CD11500B0D8ED /* AMTagView.m in Sources */,
 				BE15879D1A7CBF3F00B0D8ED /* main.m in Sources */,
+				BE5A3C031A7DFD340034039F /* SuggestionViewController.m in Sources */,
 				BE1587D51A7CD39A00B0D8ED /* InterestsViewController.m in Sources */,
 				BE3736BD1A7DBC6B002098C2 /* HobbyTableViewCell.m in Sources */,
 				BE3736B71A7D6BA1002098C2 /* HobbyTableViewController.m in Sources */,

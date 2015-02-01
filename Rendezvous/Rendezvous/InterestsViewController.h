@@ -12,5 +12,6 @@
 
 - (void)removefromSelectedWithStr:(NSString *)str;
 - (IBAction)Next:(id)sender;
+- (IBAction)Back:(id)sender;
 
 @end

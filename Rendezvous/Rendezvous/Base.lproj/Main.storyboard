@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="14I-SO-wCu" kind="relationship" relationship="rootViewController" id="HbQ-Gt-YpS"/>
+                        <segue destination="jub-sN-qQH" kind="relationship" relationship="rootViewController" id="67N-aD-pgL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
@@ -32,11 +32,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4WB-b1-Kch" appends="YES" id="w6A-F5-5En"/>
+                            <outletCollection property="gestureRecognizers" destination="Vpv-OA-geP" appends="YES" id="L40-Aj-AQL"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Select Your Interests" id="Lcq-mh-Z6o">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="JVB-xL-ttz">
+                            <connections>
+                                <action selector="Back:" destination="14I-SO-wCu" id="MOL-00-vEa"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="6qy-Pm-alv">
                             <connections>
-                                <action selector="Next:" destination="14I-SO-wCu" id="IXN-Tw-lck"/>
+                                <action selector="Next:" destination="14I-SO-wCu" id="mEb-EK-vFh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -45,11 +54,92 @@
                         <segue destination="4Tu-gf-agK" kind="show" identifier="DataTransfer" id="lgc-Ul-3V0"/>
                     </connections>
                 </viewController>
+                <swipeGestureRecognizer direction="left" id="4WB-b1-Kch">
+                    <connections>
+                        <action selector="Next:" destination="14I-SO-wCu" id="EB4-uW-zAv"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="Vpv-OA-geP">
+                    <connections>
+                        <action selector="Back:" destination="14I-SO-wCu" id="5gQ-Gb-Qv2"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYC-Ao-jpm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="550" y="64"/>
+            <point key="canvasLocation" x="1122" y="64"/>
         </scene>
-        <!--Data Transfer View Controller-->
+        <!--Welcome-->
+        <scene sceneID="VeN-WV-yCb">
+            <objects>
+                <viewController id="jub-sN-qQH" customClass="WelcomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o4I-7V-RIG"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Zh-5z-1H1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Uv-pm-34C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="PIw-4f-H8e">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dun-oq-qrc">
+                                <rect key="frame" x="54" y="266.5" width="493" height="131"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <string key="text">Welcome to Rendezvous. This app will let you and your friends find the perfect place to hang out based on your interests and preferences. To get started, swipe left.</string>
+                                <color key="textColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="2Zh-5z-1H1" firstAttribute="top" secondItem="Dun-oq-qrc" secondAttribute="bottom" constant="172" id="35h-Sd-Q5A"/>
+                            <constraint firstAttribute="trailing" secondItem="PIw-4f-H8e" secondAttribute="trailing" id="8gz-al-8OC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dun-oq-qrc" secondAttribute="trailing" constant="37" id="Bqt-fJ-xZv"/>
+                            <constraint firstItem="Dun-oq-qrc" firstAttribute="top" secondItem="o4I-7V-RIG" secondAttribute="bottom" constant="172" id="N2s-Lb-WBI"/>
+                            <constraint firstItem="PIw-4f-H8e" firstAttribute="top" secondItem="o4I-7V-RIG" secondAttribute="bottom" id="UXP-if-5Ek"/>
+                            <constraint firstItem="Dun-oq-qrc" firstAttribute="leading" secondItem="0Uv-pm-34C" secondAttribute="leadingMargin" constant="38" id="W9a-Gw-Rpt"/>
+                            <constraint firstItem="PIw-4f-H8e" firstAttribute="leading" secondItem="0Uv-pm-34C" secondAttribute="leading" id="X5f-LN-cCe"/>
+                            <constraint firstItem="2Zh-5z-1H1" firstAttribute="top" secondItem="PIw-4f-H8e" secondAttribute="bottom" id="h56-zw-GaM"/>
+                            <constraint firstAttribute="centerY" secondItem="Dun-oq-qrc" secondAttribute="centerY" constant="-32" id="ruh-TU-0dV"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="N2s-Lb-WBI"/>
+                                <exclude reference="35h-Sd-Q5A"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vu5-t5-nSu" appends="YES" id="EXc-la-LPO"/>
+                        </connections>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Welcome" id="zPG-uR-tTU">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="qct-ev-TWZ">
+                            <connections>
+                                <action selector="next:" destination="jub-sN-qQH" id="1pa-zf-ph2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="14I-SO-wCu" kind="show" identifier="Interests" id="LKs-eI-xJa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5op-RM-nko" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="vu5-t5-nSu">
+                    <connections>
+                        <action selector="next:" destination="jub-sN-qQH" id="CuB-Yl-qJr"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="490" y="64"/>
+        </scene>
+        <!--Connect With Your Partner-->
         <scene sceneID="ANt-um-pIM">
             <objects>
                 <viewController id="4Tu-gf-agK" customClass="DataTransferViewController" sceneMemberID="viewController">
@@ -61,28 +151,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="lHM-uF-Gwh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                            </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="c80-hh-XZt">
-                                <rect key="frame" x="282" y="287" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="282" y="307" width="37" height="37"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Devices" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAk-Vp-tA1">
-                                <rect key="frame" x="16" y="161" width="568" height="145"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="16" y="181" width="568" height="145"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="65"/>
+                                <color key="textColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="JAk-Vp-tA1" firstAttribute="trailing" secondItem="lk2-Rh-iXb" secondAttribute="trailingMargin" id="4jH-W3-WfA"/>
-                            <constraint firstItem="5j6-9d-Qmh" firstAttribute="top" secondItem="JAk-Vp-tA1" secondAttribute="bottom" constant="230" id="XO2-l2-PxW"/>
+                            <constraint firstAttribute="trailing" secondItem="lHM-uF-Gwh" secondAttribute="trailing" id="6p1-xJ-QMu"/>
+                            <constraint firstItem="lHM-uF-Gwh" firstAttribute="leading" secondItem="lk2-Rh-iXb" secondAttribute="leading" id="Ioc-xr-rsG"/>
+                            <constraint firstAttribute="centerX" secondItem="c80-hh-XZt" secondAttribute="centerX" id="XJn-TU-Rl4"/>
+                            <constraint firstItem="5j6-9d-Qmh" firstAttribute="top" secondItem="JAk-Vp-tA1" secondAttribute="bottom" constant="210" id="XO2-l2-PxW"/>
                             <constraint firstItem="JAk-Vp-tA1" firstAttribute="leading" secondItem="lk2-Rh-iXb" secondAttribute="leadingMargin" id="bVw-2i-P7W"/>
+                            <constraint firstItem="5j6-9d-Qmh" firstAttribute="top" secondItem="lHM-uF-Gwh" secondAttribute="bottom" id="by3-1W-CMD"/>
                             <constraint firstAttribute="centerX" secondItem="c80-hh-XZt" secondAttribute="centerX" id="hj7-sV-soW"/>
-                            <constraint firstItem="JAk-Vp-tA1" firstAttribute="top" secondItem="8b9-nd-bvt" secondAttribute="bottom" constant="161" id="iqQ-TP-M8O"/>
-                            <constraint firstItem="5j6-9d-Qmh" firstAttribute="top" secondItem="c80-hh-XZt" secondAttribute="bottom" constant="212" id="mol-ar-e09"/>
+                            <constraint firstItem="JAk-Vp-tA1" firstAttribute="top" secondItem="8b9-nd-bvt" secondAttribute="bottom" constant="181" id="iqQ-TP-M8O"/>
+                            <constraint firstItem="5j6-9d-Qmh" firstAttribute="top" secondItem="c80-hh-XZt" secondAttribute="bottom" constant="192" id="mol-ar-e09"/>
+                            <constraint firstAttribute="centerX" secondItem="JAk-Vp-tA1" secondAttribute="centerX" id="q7O-nb-8KI"/>
+                            <constraint firstItem="lHM-uF-Gwh" firstAttribute="top" secondItem="8b9-nd-bvt" secondAttribute="bottom" id="tzy-TY-AaQ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Qcs-kN-ltf" appends="YES" id="7YW-GW-hxf"/>
+                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="rbt-Y4-u2b">
+                    <navigationItem key="navigationItem" title="Connect With Your Partner" id="rbt-Y4-u2b">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Nml-sc-BPc">
                             <connections>
                                 <action selector="Back:" destination="4Tu-gf-agK" id="hJy-bY-OgD"/>
@@ -95,9 +196,14 @@
                         <segue destination="aVN-r0-Fgg" kind="show" identifier="Hobby" id="uIz-lE-C9A"/>
                     </connections>
                 </viewController>
+                <swipeGestureRecognizer direction="right" id="Qcs-kN-ltf">
+                    <connections>
+                        <action selector="Back:" destination="4Tu-gf-agK" id="Nh1-zg-yeN"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSk-yy-bmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1257" y="64"/>
+            <point key="canvasLocation" x="1765" y="64"/>
         </scene>
         <!--Hobby Table View Controller-->
         <scene sceneID="e3W-02-VNN">
@@ -142,7 +248,28 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvu-d5-AnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="64"/>
+            <point key="canvasLocation" x="2420" y="64"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NPr-q5-xrQ">
+            <objects>
+                <viewController id="N2A-FE-Eze" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AXr-xE-R4k"/>
+                        <viewControllerLayoutGuide type="bottom" id="zXY-Nk-4XU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Ic-PM-U8D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vtt-w3-mcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3082" y="64"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle.png" width="1100" height="1100"/>
+    </resources>
 </document>
