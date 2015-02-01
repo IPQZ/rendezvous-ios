@@ -92,8 +92,21 @@ NSMutableDictionary *interests;
         return;
     }
     
-    //DataTransfer
-    [self performSegueWithIdentifier:@"DataTransfer" sender:self];
+    UIAlertView *pair = [[UIAlertView alloc] initWithTitle:@"Would you like to pair?" message:nil delegate:self cancelButtonTitle:@"Solo" otherButtonTitles:@"Pair", nil];
+    
+    [pair show];
+    
+    return;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) { //pair
+        //DataTransfer
+        [self performSegueWithIdentifier:@"DataTransfer" sender:self];
+    } else {
+        //DataTransfer
+        [self performSegueWithIdentifier:@"DataTransferSolo" sender:self];
+    }
 }
 
 
@@ -109,6 +122,18 @@ NSMutableDictionary *interests;
             entriesToSend[i] = interests[selectedItems[i]];
         }
         dest.idsToSend = entriesToSend;
+        dest.pair = YES;
+    } else if ([[segue identifier] isEqualToString: @"DataTransferSolo"]) {
+        DataTransferViewController *dest = (DataTransferViewController *)[segue destinationViewController];
+        //the sender is what you pass into the previous method
+        NSMutableArray *entriesToSend = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < selectedItems.count; i++)
+        {
+            entriesToSend[i] = interests[selectedItems[i]];
+        }
+        dest.idsToSend = entriesToSend;
+        dest.pair = NO;
     }
 }
 

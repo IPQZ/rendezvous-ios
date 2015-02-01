@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InterestsViewController : UIViewController
+@interface InterestsViewController : UIViewController <UIAlertViewDelegate>
 
 - (void)removefromSelectedWithStr:(NSString *)str;
 - (IBAction)Next:(id)sender;

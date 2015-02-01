@@ -13,6 +13,7 @@
 
 @interface DataTransferViewController : UIViewController <MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate>
 
+@property (nonatomic) BOOL pair;
 @property (nonatomic, strong) NSMutableArray *idsToSend;
 @property (nonatomic, strong) MCPeerID *devicePeerID;
 @property (nonatomic, strong) MCSession *session;

@@ -18,7 +18,7 @@
 @implementation DataTransferViewController
 
 
-@synthesize devicePeerID, session, serviceAdvertiser, nearbyServiceBrowser, idsToSend, parsedData;
+@synthesize pair, devicePeerID, session, serviceAdvertiser, nearbyServiceBrowser, idsToSend, parsedData;
 
 static NSString * const serviceType = @"rendezvous";
 NSMutableArray *response;
@@ -176,6 +176,39 @@ NSMutableArray *response;
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    
+    if (!pair) {
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:idsToSend options:kNilOptions error:nil];
+        NSString *jsonSring = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        
+        NSString *location = [NSString stringWithFormat:@"http://rendezvous.mybluemix.net/analyze?interests=%@", jsonSring];
+        NSURL *url = [[NSURL alloc] initWithString:location];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+        [request setHTTPMethod:@"GET"];
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        //this is BAD but will work for the demo
+        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+         {
+             NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+             
+             for (NSMutableDictionary *dict in JSONData)
+             {
+                 NSString *hobbyName = dict[@"hobby_name"];
+                 [parsedData addObject:hobbyName];
+                 
+             }
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self next];
+                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+             });
+             
+         }];
+        return;
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         _outputLbl.text = @"Looking for a partner device";
         [self start];
