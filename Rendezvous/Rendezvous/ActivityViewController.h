@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) IBOutlet MKAnnotationView *map;
 
+-(void)getYelpApiStuff:(NSString *)hobbyName;
+
 @end
 
 @interface YelpData : NSObject

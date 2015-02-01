@@ -10,6 +10,7 @@
 #import "HourlyViewController.h"
 #import "HobbyTableViewCell.h"
 #import "AppDelegate.h"
+#import "ActivityViewController.h"
 
 @interface HourlyViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -61,6 +62,36 @@
     NSLog(@"%@",hobbyData[indexPath.row]);
     return cell;
 }
+
+
+- (IBAction)Next:(id)sender
+{
+
+    
+    //DataTransfer
+    [self performSegueWithIdentifier:@"Activity" sender:self];
+}
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString: @"Activity"]) {
+        ActivityViewController *dest = (ActivityViewController *)[segue destinationViewController];
+        [dest getYelpApiStuff:@"HobbyName"];
+        //the sender is what you pass into the previous method
+        
+        
+    }
+}
+
+
+- (IBAction)Back:(id)sender
+{
+    hobbyData = [[NSMutableArray alloc] init];
+    //this is really hacky
+    [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+}
+
 
 
 /*

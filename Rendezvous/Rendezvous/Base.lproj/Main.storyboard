@@ -214,16 +214,62 @@
                         <viewControllerLayoutGuide type="bottom" id="zXY-Nk-4XU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Ic-PM-U8D">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-4v-nIK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HL3-uX-ree">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <color key="backgroundColor" red="0.53333333329999999" green="0.80000000000000004" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="JFP-OY-ff6" appends="YES" id="CRT-EX-VBA"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HL3-uX-ree" firstAttribute="height" secondItem="oWf-4v-nIK" secondAttribute="height" id="1tN-QS-Qye"/>
+                            <constraint firstItem="oWf-4v-nIK" firstAttribute="leading" secondItem="5Ic-PM-U8D" secondAttribute="leading" id="9wb-4v-a1Z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oWf-4v-nIK" secondAttribute="trailing" constant="-16" id="9yu-fW-rRH"/>
+                            <constraint firstItem="HL3-uX-ree" firstAttribute="top" secondItem="oWf-4v-nIK" secondAttribute="bottom" id="AqP-hS-oDa"/>
+                            <constraint firstItem="HL3-uX-ree" firstAttribute="leading" secondItem="5Ic-PM-U8D" secondAttribute="leading" id="GDE-Ng-RmW"/>
+                            <constraint firstItem="HL3-uX-ree" firstAttribute="top" secondItem="oWf-4v-nIK" secondAttribute="bottom" id="Kzp-7T-45e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oWf-4v-nIK" secondAttribute="trailing" constant="-16" id="SWW-vx-Lq7"/>
+                            <constraint firstItem="zXY-Nk-4XU" firstAttribute="top" secondItem="oWf-4v-nIK" secondAttribute="bottom" id="bIf-L5-Qwg"/>
+                            <constraint firstItem="HL3-uX-ree" firstAttribute="top" secondItem="5Ic-PM-U8D" secondAttribute="topMargin" constant="-64" id="ckq-Oe-ras"/>
+                            <constraint firstAttribute="trailing" secondItem="oWf-4v-nIK" secondAttribute="trailing" id="dIc-51-2KL"/>
+                            <constraint firstItem="oWf-4v-nIK" firstAttribute="top" secondItem="5Ic-PM-U8D" secondAttribute="topMargin" id="fld-do-6TB"/>
+                            <constraint firstItem="oWf-4v-nIK" firstAttribute="top" secondItem="HL3-uX-ree" secondAttribute="bottom" constant="8" id="gGj-kD-FyZ"/>
+                            <constraint firstItem="zXY-Nk-4XU" firstAttribute="top" secondItem="oWf-4v-nIK" secondAttribute="bottom" id="gXr-70-rPH"/>
+                            <constraint firstAttribute="trailing" secondItem="HL3-uX-ree" secondAttribute="trailing" id="lqS-je-BcL"/>
+                            <constraint firstItem="oWf-4v-nIK" firstAttribute="leading" secondItem="5Ic-PM-U8D" secondAttribute="leadingMargin" constant="-16" id="nFd-IC-EIq"/>
+                            <constraint firstItem="zXY-Nk-4XU" firstAttribute="top" secondItem="HL3-uX-ree" secondAttribute="bottom" id="pTO-xP-vDO"/>
+                            <constraint firstItem="oWf-4v-nIK" firstAttribute="top" secondItem="HL3-uX-ree" secondAttribute="bottom" constant="8" id="rds-cq-KmG"/>
+                            <constraint firstItem="oWf-4v-nIK" firstAttribute="leading" secondItem="5Ic-PM-U8D" secondAttribute="leadingMargin" constant="-16" id="wHE-ht-ik2"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9yu-fW-rRH"/>
+                                <exclude reference="SWW-vx-Lq7"/>
+                                <exclude reference="gGj-kD-FyZ"/>
+                                <exclude reference="nFd-IC-EIq"/>
+                                <exclude reference="rds-cq-KmG"/>
+                                <exclude reference="wHE-ht-ik2"/>
+                                <exclude reference="ckq-Oe-ras"/>
+                                <exclude reference="bIf-L5-Qwg"/>
+                                <exclude reference="gXr-70-rPH"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
+                <swipeGestureRecognizer direction="right" id="JFP-OY-ff6"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtt-w3-mcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3166" y="64"/>
         </scene>
-        <!--Hourly View Controller-->
+        <!--Select A Hobby-->
         <scene sceneID="K35-hb-4qx">
             <objects>
                 <viewController id="WjH-8j-WEF" customClass="HourlyViewController" sceneMemberID="viewController">
@@ -232,11 +278,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Bqq-XZ-dnj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DYm-Sx-wdN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YLT-Uk-K9m">
-                                <rect key="frame" x="0.0" y="-67" width="600" height="603"/>
+                                <rect key="frame" x="0.0" y="-3" width="600" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="3Cg-3t-Zce">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
@@ -296,6 +342,8 @@
                                 <connections>
                                     <outlet property="dataSource" destination="WjH-8j-WEF" id="vr6-qA-tXt"/>
                                     <outlet property="delegate" destination="WjH-8j-WEF" id="vI9-KA-S5U"/>
+                                    <outletCollection property="gestureRecognizers" destination="CGk-2P-ecf" appends="YES" id="31G-B9-38C"/>
+                                    <outletCollection property="gestureRecognizers" destination="Zgl-n6-VMG" appends="YES" id="Vzh-nE-eUH"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -303,23 +351,47 @@
                         <constraints>
                             <constraint firstItem="YLT-Uk-K9m" firstAttribute="top" secondItem="P8J-S9-oGs" secondAttribute="bottom" constant="-67" id="50g-DS-bEO"/>
                             <constraint firstAttribute="trailing" secondItem="YLT-Uk-K9m" secondAttribute="trailing" id="DIy-mm-3WC"/>
-                            <constraint firstItem="YLT-Uk-K9m" firstAttribute="top" secondItem="P8J-S9-oGs" secondAttribute="bottom" constant="-67" id="Fcw-pR-mDX"/>
+                            <constraint firstItem="YLT-Uk-K9m" firstAttribute="top" secondItem="P8J-S9-oGs" secondAttribute="bottom" constant="-131" id="Fcw-pR-mDX"/>
                             <constraint firstItem="Bqq-XZ-dnj" firstAttribute="top" secondItem="YLT-Uk-K9m" secondAttribute="bottom" id="OLu-VV-sWD"/>
+                            <constraint firstItem="YLT-Uk-K9m" firstAttribute="top" secondItem="P8J-S9-oGs" secondAttribute="bottom" constant="-131" id="Vhr-ky-PdS"/>
                             <constraint firstItem="YLT-Uk-K9m" firstAttribute="leading" secondItem="DYm-Sx-wdN" secondAttribute="leading" id="p2Y-jM-OyD"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="50g-DS-bEO"/>
+                                <exclude reference="Fcw-pR-mDX"/>
+                                <exclude reference="Vhr-ky-PdS"/>
                             </mask>
                         </variation>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationItem key="navigationItem" title="Select A Hobby" id="3Q8-r4-6WW">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="lPV-3u-oLs">
+                            <connections>
+                                <action selector="Back:" destination="WjH-8j-WEF" id="sGd-uf-zAj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="T5p-Zu-FgE">
+                            <connections>
+                                <action selector="Next:" destination="WjH-8j-WEF" id="AIF-rr-1yn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="YLT-Uk-K9m" id="BdN-Ai-guh"/>
                         <segue destination="N2A-FE-Eze" kind="show" identifier="Activity" id="JNO-Ys-Wvb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1e-88-t8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="CGk-2P-ecf">
+                    <connections>
+                        <action selector="Next:" destination="WjH-8j-WEF" id="rhH-Du-fOk"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="Zgl-n6-VMG">
+                    <connections>
+                        <action selector="Back:" destination="WjH-8j-WEF" id="E4X-G6-Y2x"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2440" y="64"/>
         </scene>

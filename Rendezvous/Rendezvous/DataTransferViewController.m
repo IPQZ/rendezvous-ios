@@ -210,6 +210,7 @@ NSMutableArray *response;
         HourlyViewController *dest = (HourlyViewController *)[segue destinationViewController];
 
         ((AppDelegate *)[[UIApplication sharedApplication] delegate]).hobbyArray = parsedData.copy;
+        parsedData = [[NSMutableArray alloc]init];
     }
 }
 
