@@ -12,7 +12,9 @@
 #import "AppDelegate.h"
 #import "ActivityViewController.h"
 
-@interface HourlyViewController ()
+@interface HourlyViewController () {
+    
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -59,6 +61,10 @@
     cell.hobbyName.layer.cornerRadius = 5;
     cell.hobbyName.layer.masksToBounds = YES;
     
+    cell.hobbyName.tag = indexPath.row;
+    
+    [cell.hobbyName addTarget:self action:@selector(Next:) forControlEvents:UIControlEventTouchUpInside];
+    
     NSLog(@"%@",hobbyData[indexPath.row]);
     return cell;
 }
@@ -66,10 +72,8 @@
 
 - (IBAction)Next:(id)sender
 {
-
-    
     //DataTransfer
-    [self performSegueWithIdentifier:@"Activity" sender:self];
+    [self performSegueWithIdentifier:@"Activity" sender:sender];
 }
 
 
@@ -77,7 +81,11 @@
 {
     if ([[segue identifier] isEqualToString: @"Activity"]) {
         ActivityViewController *dest = (ActivityViewController *)[segue destinationViewController];
-        [dest getYelpApiStuff:@"HobbyName"];
+        int index = 0;
+        @try {
+            index = (int)((UIButton *) sender).tag;
+        } @catch (NSException *e) {}
+        [dest getYelpApiStuff:[hobbyData objectAtIndex:index]];
         //the sender is what you pass into the previous method
         
         

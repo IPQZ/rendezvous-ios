@@ -222,7 +222,48 @@
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HL3-uX-ree">
                                 <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vso-F8-13v">
+                                        <rect key="frame" x="20" y="8" width="560" height="35.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIi-sy-Jhe">
+                                        <rect key="frame" x="20" y="52" width="560" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnT-ec-gYg">
+                                        <rect key="frame" x="20" y="84" width="286" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXr-mF-V9a">
+                                        <rect key="frame" x="306" y="84" width="286" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.53333333329999999" green="0.80000000000000004" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="nXr-mF-V9a" firstAttribute="top" secondItem="WIi-sy-Jhe" secondAttribute="bottom" constant="8" id="0yL-o3-GAW"/>
+                                    <constraint firstItem="nXr-mF-V9a" firstAttribute="leading" secondItem="fnT-ec-gYg" secondAttribute="trailing" id="EdW-Y9-2jd"/>
+                                    <constraint firstItem="nXr-mF-V9a" firstAttribute="width" secondItem="fnT-ec-gYg" secondAttribute="width" id="Gf3-ME-VAd"/>
+                                    <constraint firstItem="Vso-F8-13v" firstAttribute="leading" secondItem="HL3-uX-ree" secondAttribute="leading" constant="20" id="Ig2-Cd-G16"/>
+                                    <constraint firstAttribute="trailing" secondItem="WIi-sy-Jhe" secondAttribute="trailing" constant="20" id="L0A-wR-Hwz"/>
+                                    <constraint firstAttribute="trailing" secondItem="nXr-mF-V9a" secondAttribute="trailing" constant="8" id="LiY-0n-kYb"/>
+                                    <constraint firstItem="Vso-F8-13v" firstAttribute="top" secondItem="HL3-uX-ree" secondAttribute="top" constant="8" id="Pr1-5O-WG7"/>
+                                    <constraint firstItem="fnT-ec-gYg" firstAttribute="leading" secondItem="HL3-uX-ree" secondAttribute="leading" constant="20" id="XDB-j5-cfx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vso-F8-13v" secondAttribute="trailing" constant="20" id="ajr-Jq-eAo"/>
+                                    <constraint firstItem="fnT-ec-gYg" firstAttribute="top" secondItem="WIi-sy-Jhe" secondAttribute="bottom" constant="8" id="bc7-WM-vjX"/>
+                                    <constraint firstItem="nXr-mF-V9a" firstAttribute="leading" secondItem="fnT-ec-gYg" secondAttribute="trailing" id="lS8-HG-eo6"/>
+                                    <constraint firstItem="WIi-sy-Jhe" firstAttribute="leading" secondItem="HL3-uX-ree" secondAttribute="leading" constant="20" id="nnE-60-HLw"/>
+                                    <constraint firstItem="WIi-sy-Jhe" firstAttribute="top" secondItem="Vso-F8-13v" secondAttribute="bottom" constant="8.5" id="rRi-JF-kwE"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="JFP-OY-ff6" appends="YES" id="CRT-EX-VBA"/>
                                 </connections>
