@@ -142,7 +142,8 @@ NSMutableArray *response;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
     
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    //this is BAD but will work for the demo
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
     {
         NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -156,6 +157,7 @@ NSMutableArray *response;
       
         dispatch_async(dispatch_get_main_queue(), ^{
             [self next];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         });
 
     }];
