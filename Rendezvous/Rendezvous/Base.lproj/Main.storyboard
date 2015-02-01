@@ -193,7 +193,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="outputLbl" destination="JAk-Vp-tA1" id="5kb-H3-mQr"/>
-                        <segue destination="lIX-S2-KUj" kind="show" identifier="Hobby" id="vnr-QO-Y7Z"/>
+                        <segue destination="aVN-r0-Fgg" kind="show" identifier="Hobby" id="uIz-lE-C9A"/>
                     </connections>
                 </viewController>
                 <swipeGestureRecognizer direction="right" id="Qcs-kN-ltf">
@@ -205,80 +205,49 @@
             </objects>
             <point key="canvasLocation" x="1765" y="64"/>
         </scene>
-        <!--Hourly View Controller-->
-        <scene sceneID="sVx-Yk-QoJ">
+        <!--Hobby Table View Controller-->
+        <scene sceneID="e3W-02-VNN">
             <objects>
-                <viewController id="lIX-S2-KUj" customClass="HourlyViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cSn-CQ-8Wf"/>
-                        <viewControllerLayoutGuide type="bottom" id="710-V8-slb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="L3E-Gi-cVs">
+                <tableViewController id="aVN-r0-Fgg" customClass="HobbyTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" id="k5e-xk-jsv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PWY-L3-JSH">
-                                <rect key="frame" x="0.0" y="-67" width="600" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hobbiesCell" id="PYB-KY-czl" customClass="HobbyTableViewCell">
-                                        <rect key="frame" x="0.0" y="245" width="600" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PYB-KY-czl" id="hb5-Rs-CNL">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3S-NE-4q9">
-                                                    <rect key="frame" x="8" y="8" width="584" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="L3S-NE-4q9" secondAttribute="bottom" id="2jH-w4-lcY"/>
-                                                <constraint firstItem="L3S-NE-4q9" firstAttribute="top" secondItem="hb5-Rs-CNL" secondAttribute="topMargin" id="D9d-6q-JPf"/>
-                                                <constraint firstItem="L3S-NE-4q9" firstAttribute="leading" secondItem="hb5-Rs-CNL" secondAttribute="leadingMargin" id="Hhn-DM-uHK"/>
-                                                <constraint firstItem="L3S-NE-4q9" firstAttribute="leading" secondItem="hb5-Rs-CNL" secondAttribute="leadingMargin" id="Q25-42-1In"/>
-                                                <constraint firstItem="L3S-NE-4q9" firstAttribute="trailing" secondItem="hb5-Rs-CNL" secondAttribute="trailingMargin" id="TM7-kD-YVb"/>
-                                                <constraint firstItem="L3S-NE-4q9" firstAttribute="trailing" secondItem="hb5-Rs-CNL" secondAttribute="trailingMargin" id="qaS-u5-P1q"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="L3S-NE-4q9" secondAttribute="bottom" id="vWA-57-04q"/>
-                                                <constraint firstItem="L3S-NE-4q9" firstAttribute="top" secondItem="hb5-Rs-CNL" secondAttribute="topMargin" id="yM6-2w-1ke"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.53333333329999999" green="0.80000000000000004" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="hobbyName" destination="L3S-NE-4q9" id="SOt-r1-Vju"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="lIX-S2-KUj" id="B5l-Ye-yBD"/>
-                                    <outlet property="delegate" destination="lIX-S2-KUj" id="9JB-3a-3cp"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="710-V8-slb" firstAttribute="top" secondItem="PWY-L3-JSH" secondAttribute="bottom" id="TcD-a9-xTV"/>
-                            <constraint firstAttribute="trailing" secondItem="PWY-L3-JSH" secondAttribute="trailing" id="aEv-QP-i6M"/>
-                            <constraint firstItem="PWY-L3-JSH" firstAttribute="leading" secondItem="L3E-Gi-cVs" secondAttribute="leading" id="bjw-DS-t9m"/>
-                            <constraint firstItem="PWY-L3-JSH" firstAttribute="top" secondItem="cSn-CQ-8Wf" secondAttribute="bottom" constant="-67" id="kwp-ul-0t1"/>
-                            <constraint firstItem="PWY-L3-JSH" firstAttribute="top" secondItem="cSn-CQ-8Wf" secondAttribute="bottom" constant="-67" id="r9S-qb-Rxf"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="kwp-ul-0t1"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="tableView" destination="PWY-L3-JSH" id="XAZ-FI-Ubh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gZ5-FT-wCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="14" maxX="0.0" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hobbiesCell" id="KIu-KH-h6k" customClass="HobbyTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KIu-KH-h6k" id="f0U-Uy-5rN">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-k9-nwC">
+                                            <rect key="frame" x="8" y="8" width="584" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="xq6-k9-nwC" secondAttribute="bottom" id="CW8-SU-fPW"/>
+                                        <constraint firstItem="xq6-k9-nwC" firstAttribute="top" secondItem="f0U-Uy-5rN" secondAttribute="topMargin" id="IBQ-Jn-Emt"/>
+                                        <constraint firstItem="xq6-k9-nwC" firstAttribute="trailing" secondItem="f0U-Uy-5rN" secondAttribute="trailingMargin" id="IJ1-Tb-dwa"/>
+                                        <constraint firstItem="xq6-k9-nwC" firstAttribute="leading" secondItem="f0U-Uy-5rN" secondAttribute="leadingMargin" id="WXy-Ok-GI6"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.53333333329999999" green="0.80000000000000004" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="hobbyName" destination="xq6-k9-nwC" id="Gwv-mK-JbR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aVN-r0-Fgg" id="brn-2l-ZXh"/>
+                            <outlet property="delegate" destination="aVN-r0-Fgg" id="k4b-UK-eeD"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvu-d5-AnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="2420" y="64"/>
         </scene>
         <!--View Controller-->
@@ -298,9 +267,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtt-w3-mcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3082" y="64"/>
-=======
-            <point key="canvasLocation" x="1984" y="64"/>
->>>>>>> bdfd9f58b74113d55dfb582eca628411d240c247
         </scene>
     </scenes>
     <resources>
