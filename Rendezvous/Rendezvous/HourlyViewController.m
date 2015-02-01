@@ -63,6 +63,15 @@
     
     cell.hobbyName.tag = indexPath.row;
     
+    
+    cell.progress.layer.cornerRadius = 5;
+    cell.progress.layer.masksToBounds = YES;
+    
+    
+    NSLog(@"%@", NSStringFromCGRect(cell.progress.frame));
+    NSLog(@"%f", [[UIScreen mainScreen] bounds].size.width);
+    
+    
     [cell.hobbyName addTarget:self action:@selector(Next:) forControlEvents:UIControlEventTouchUpInside];
     
     NSLog(@"%@",hobbyData[indexPath.row]);

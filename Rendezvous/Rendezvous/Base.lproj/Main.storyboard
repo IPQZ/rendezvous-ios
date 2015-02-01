@@ -439,6 +439,11 @@
                                         </mask>
                                     </variation>
                                 </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="l3K-mC-yUB">
+                                    <rect key="frame" x="0.0" y="242" width="600" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hobbiesCell" id="pKe-dd-fx2" customClass="HobbyTableViewCell">
                                         <rect key="frame" x="0.0" y="245" width="600" height="46"/>
@@ -446,9 +451,13 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKe-dd-fx2" id="70D-Rm-ih3">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8s-7h-7cP">
-                                                    <rect key="frame" x="30" y="4" width="502" height="48"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-CF-HgF">
+                                                    <rect key="frame" x="30" y="4" width="541" height="48"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8s-7h-7cP">
+                                                    <rect key="frame" x="30" y="4" width="541" height="48"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title="Button">
@@ -461,12 +470,17 @@
                                                 <constraint firstItem="Q8s-7h-7cP" firstAttribute="top" secondItem="70D-Rm-ih3" secondAttribute="topMargin" constant="-4" id="4Zi-1Y-ts7"/>
                                                 <constraint firstItem="Q8s-7h-7cP" firstAttribute="bottom" secondItem="70D-Rm-ih3" secondAttribute="bottomMargin" constant="4" id="8iR-fW-ewH"/>
                                                 <constraint firstItem="Q8s-7h-7cP" firstAttribute="leading" secondItem="70D-Rm-ih3" secondAttribute="leadingMargin" constant="22" id="I8S-JS-X0Y"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Q8s-7h-7cP" secondAttribute="trailing" constant="60" id="Jzm-FP-4mp"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Q8s-7h-7cP" secondAttribute="trailing" constant="21" id="Jzm-FP-4mp"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BO8-CF-HgF" secondAttribute="trailing" constant="21" id="VYN-Tp-lmI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BO8-CF-HgF" secondAttribute="bottom" constant="-4" id="WvM-Is-egs"/>
+                                                <constraint firstItem="BO8-CF-HgF" firstAttribute="leading" secondItem="70D-Rm-ih3" secondAttribute="leadingMargin" constant="22" id="ktz-uV-QTL"/>
+                                                <constraint firstItem="BO8-CF-HgF" firstAttribute="top" secondItem="70D-Rm-ih3" secondAttribute="topMargin" constant="-4" id="qVq-7e-wnl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="hobbyName" destination="Q8s-7h-7cP" id="CJx-x1-kRs"/>
+                                            <outlet property="progress" destination="BO8-CF-HgF" id="e1G-WM-w8E"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

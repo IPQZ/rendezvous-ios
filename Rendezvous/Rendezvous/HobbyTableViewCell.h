@@ -11,5 +11,6 @@
 @interface HobbyTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UIButton *hobbyName;
+@property (nonatomic, strong) IBOutlet UIView *progress;
 
 @end

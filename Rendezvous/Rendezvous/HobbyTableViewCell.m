@@ -10,6 +10,7 @@
 
 @implementation HobbyTableViewCell
 @synthesize hobbyName;
+@synthesize progress;
 
 - (void)awakeFromNib {
     // Initialization code
