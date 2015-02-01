@@ -7,7 +7,7 @@
 //
 
 #import "DataTransferViewController.h"
-#import "HobbyTableViewController.h"
+#import "HourlyViewController.h"
 #import "AppDelegate.h"
 
 
@@ -207,7 +207,7 @@ NSMutableArray *response;
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString: @"Hobby"]) {
-        HobbyTableViewController *dest = (HobbyTableViewController *)[segue destinationViewController];
+        HourlyViewController *dest = (HourlyViewController *)[segue destinationViewController];
 
         ((AppDelegate *)[[UIApplication sharedApplication] delegate]).hobbyArray = parsedData.copy;
     }
