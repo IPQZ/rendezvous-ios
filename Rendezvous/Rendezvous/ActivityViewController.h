@@ -21,6 +21,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *address;
 @property (nonatomic, strong) IBOutlet UILabel *rating;
 @property (nonatomic, strong) IBOutlet UILabel *open;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 -(void)getYelpApiStuff:(NSString *)hobbyName;
 - (IBAction)Back:(id)sender;

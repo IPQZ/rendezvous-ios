@@ -44,7 +44,7 @@
 
 @implementation ActivityViewController
 
-@synthesize map, name, open, rating, address;
+@synthesize map, name, open, rating, address, imageView;
 
 
 NSArray *yelpLocations;
@@ -129,6 +129,18 @@ MapAnnotation *anot;
         address.text = ((YelpData *)yelpLocations[i]).address;
         rating.text = [NSString stringWithFormat:@"%.01f Stars", ((YelpData *)yelpLocations[i]).rating];
         open.text = ((YelpData *)yelpLocations[i]).isClosed ? @"Closed" : @"Open";
+        
+        NSString *imageURL = ((YelpData *)yelpLocations[i]).imageUrl;
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            //Background Thread
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                //Run UI Updates
+                imageView.image = image;
+            });
+        });
     }
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
