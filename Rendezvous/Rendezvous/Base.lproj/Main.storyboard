@@ -84,10 +84,10 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dun-oq-qrc">
-                                <rect key="frame" x="54" y="265" width="493" height="134"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dun-oq-qrc">
+                                <rect key="frame" x="54" y="272" width="493" height="132.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Welcome to Rendezvous. This app will let you and your friends find the perfect place to hang out based on your interests and preferences. To get started, swipe left.</string>
+                                <string key="text">Welcome to Rendezvous. This app will let you and your significant other find the perfect place to hang out based on your interests and preferences. To get started, swipe left.</string>
                                 <color key="textColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -104,7 +104,7 @@
                             <constraint firstItem="Dun-oq-qrc" firstAttribute="leading" secondItem="0Uv-pm-34C" secondAttribute="leadingMargin" constant="38" id="W9a-Gw-Rpt"/>
                             <constraint firstItem="PIw-4f-H8e" firstAttribute="leading" secondItem="0Uv-pm-34C" secondAttribute="leading" id="X5f-LN-cCe"/>
                             <constraint firstItem="2Zh-5z-1H1" firstAttribute="top" secondItem="PIw-4f-H8e" secondAttribute="bottom" id="h56-zw-GaM"/>
-                            <constraint firstAttribute="centerY" secondItem="Dun-oq-qrc" secondAttribute="centerY" constant="-32" id="ruh-TU-0dV"/>
+                            <constraint firstAttribute="centerY" secondItem="Dun-oq-qrc" secondAttribute="centerY" constant="-38" id="ruh-TU-0dV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
