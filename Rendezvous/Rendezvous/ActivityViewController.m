@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 IPQZ. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "ActivityViewController.h"
 #import "MapAnnotation.h"
 
@@ -33,7 +34,9 @@
 @end
 
 
-@interface ActivityViewController ()
+@interface ActivityViewController () {
+    int current;
+}
 
 @end
 
@@ -54,6 +57,11 @@ MapAnnotation *anot;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     yelpLocations = [[NSArray alloc]init];
+    
+    
+    [imageView.layer setBorderColor: [[UIColor colorWithRed:136/255.0f green:204/255.0f blue:136/255.0f alpha:1] CGColor]];
+    [imageView.layer setBorderWidth: 2.0];
+    
 }
 
 - (void)startStandardUpdates
@@ -95,6 +103,7 @@ MapAnnotation *anot;
     [request setHTTPMethod:@"GET"];
     
     
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
      {
          
@@ -113,7 +122,9 @@ MapAnnotation *anot;
          dispatch_async(dispatch_get_main_queue(), ^{
               yelpLocations = [NSArray arrayWithArray: yelpData];
              
-             [self setLocation:0];
+             current = 0;
+             [self setLocation:current];
+             [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
              
              
              //UPDATE GUI ACCORDINGLY
@@ -192,6 +203,14 @@ MapAnnotation *anot;
 - (IBAction)Back:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)swipeUp:(id)sender {
+    current++;
+    if (current == yelpLocations.count) {
+        current = 0;
+    }
+    [self setLocation:current];
 }
 
 

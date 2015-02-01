@@ -25,6 +25,7 @@
 
 -(void)getYelpApiStuff:(NSString *)hobbyName;
 - (IBAction)Back:(id)sender;
+-(IBAction)swipeUp:(id)sender;
 
 @end
 
