@@ -1,1 +1,8 @@
 .DS_Store
+*.xcscheme
+
+*.plist
+
+*.xcuserstate
+
+*.pbxproj
