@@ -37,35 +37,37 @@ NSMutableDictionary *interests;
     [request setHTTPMethod:@"GET"];
     
     //this is BAD but will work for the demo
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+//    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     
-    NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    for (NSMutableDictionary *dict in JSONData)
-    {
-        
-        NSString *hobbyName = dict[@"name"];
-        NSNumber *hobbyID = dict[@"id"];
-        interests[hobbyName] = hobbyID;
-        
-        [tagListView addTag:hobbyName];
-    }
-
-    [tagListView setTapHandler:^(AMTagView *tapHandler) {
-        if (tapHandler.isToggled) {
-            [tapHandler setTagColor:kTagColour];
-            tapHandler.isToggled = false;
-            [self removefromSelectedWithStr: tapHandler.tagText];
-            
-        }
-        else
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        for (NSMutableDictionary *dict in JSONData)
         {
-            [tapHandler setTagColor:kTagSelectedColour];
-            tapHandler.isToggled = true;
-            [selectedItems addObject:tapHandler.tagText];
+            
+            NSString *hobbyName = dict[@"name"];
+            NSNumber *hobbyID = dict[@"id"];
+            interests[hobbyName] = hobbyID;
+            
+            [tagListView addTag:hobbyName];
         }
+        
+        [tagListView setTapHandler:^(AMTagView *tapHandler) {
+            if (tapHandler.isToggled) {
+                [tapHandler setTagColor:kTagColour];
+                tapHandler.isToggled = false;
+                [self removefromSelectedWithStr: tapHandler.tagText];
+                
+            }
+            else
+            {
+                [tapHandler setTagColor:kTagSelectedColour];
+                tapHandler.isToggled = true;
+                [selectedItems addObject:tapHandler.tagText];
+            }
+        }];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
-    
-    
 }
 
 - (void)removefromSelectedWithStr:(NSString *)str
