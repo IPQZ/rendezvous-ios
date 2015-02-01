@@ -210,6 +210,7 @@ MapAnnotation *anot;
     if (current == yelpLocations.count) {
         current = 0;
     }
+    [self removeAnnotation];
     [self setLocation:current];
 }
 

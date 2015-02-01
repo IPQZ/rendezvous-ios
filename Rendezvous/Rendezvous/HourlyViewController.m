@@ -96,8 +96,6 @@
         } @catch (NSException *e) {}
         [dest getYelpApiStuff:[hobbyData objectAtIndex:index]];
         //the sender is what you pass into the previous method
-        
-        
     }
 }
 

@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) IBOutlet MKMapView *map;
 @property (nonatomic, strong) IBOutlet UILabel *name;
-@property (nonatomic, strong) IBOutlet UILabel *address;
+@property (nonatomic, strong) IBOutlet UITextView *address;
 @property (nonatomic, strong) IBOutlet UILabel *rating;
 @property (nonatomic, strong) IBOutlet UILabel *open;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
