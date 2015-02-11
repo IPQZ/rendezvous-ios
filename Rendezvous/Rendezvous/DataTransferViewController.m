@@ -137,7 +137,7 @@ NSMutableArray *response;
     NSString *jsonSring = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
-    NSString *location = [NSString stringWithFormat:@"http://rendezvous.mybluemix.net/analyze?interests=%@", jsonSring];
+    NSString *location = [NSString stringWithFormat:@"http://rendezvouswith.me/analyze?interests=%@", jsonSring];
     NSURL *url = [[NSURL alloc] initWithString:location];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
@@ -182,7 +182,7 @@ NSMutableArray *response;
         NSString *jsonSring = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
         
-        NSString *location = [NSString stringWithFormat:@"http://rendezvous.mybluemix.net/analyze?interests=%@", jsonSring];
+        NSString *location = [NSString stringWithFormat:@"http://rendezvouswith.me/analyze?interests=%@", jsonSring];
         NSURL *url = [[NSURL alloc] initWithString:location];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
         [request setHTTPMethod:@"GET"];

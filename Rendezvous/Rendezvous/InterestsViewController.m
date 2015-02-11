@@ -32,13 +32,10 @@ NSMutableDictionary *interests;
     AMTagListView *tagListView = [[AMTagListView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:tagListView];
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://rendezvous.mybluemix.net/interests"];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://rendezvouswith.me/interests"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
-    
-    //this is BAD but will work for the demo
-//    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    
+
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];

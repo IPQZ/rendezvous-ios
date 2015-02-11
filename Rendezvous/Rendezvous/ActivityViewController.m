@@ -96,7 +96,7 @@ MapAnnotation *anot;
 
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
-    NSString *location = [NSString stringWithFormat:@"http://rendezvous.mybluemix.net/hobby?term=%@&location=[%f,%f]",
+    NSString *location = [NSString stringWithFormat:@"http://rendezvouswith.me/hobby?term=%@&location=[%f,%f]",
                           [hobbyName urlencode], coords.latitude, coords.longitude];
     NSURL *url = [[NSURL alloc] initWithString:location];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -177,7 +177,6 @@ MapAnnotation *anot;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    //http://rendezvous.mybluemix.net/hobby?term=hobbygoeshere&location=[LAT,LONG]
 }
 
 
