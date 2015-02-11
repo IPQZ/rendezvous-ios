@@ -160,7 +160,7 @@ MapAnnotation *anot;
                  completionHandler:^(NSArray* placemarks, NSError* error){
                      for (CLPlacemark* aPlacemark in placemarks)
                      {
-                         [map setRegion:MKCoordinateRegionMake(aPlacemark.location.coordinate, MKCoordinateSpanMake(0.60001, 0.60001 )) animated:YES];
+                         [map setRegion:MKCoordinateRegionMake(aPlacemark.location.coordinate, MKCoordinateSpanMake(0.1201, 0.1201 )) animated:YES];
                          anot = [[MapAnnotation alloc]initWithTitle:name.text  AndCoordinate:aPlacemark.location.coordinate];
                          [map addAnnotation:anot];
                      }
